@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171411">
+<title>Рукопись — мастерская рунического письма</title>
+<meta name="description" content="Виртуальная мастерская рунического письма: древние системы письма, рунические шрифты и создание собственных надписей.">
+<style>
+:root{color-scheme:dark;--bg:#171411;--gold:#c7a66a;--text:#f2eadc;--muted:#b9ad9b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#3a2c1d 0,#171411 55%);color:var(--text);font:16px/1.6 Georgia,serif}
+header{padding:42px 20px 28px;text-align:center;border-bottom:1px solid #57452e}
+.mark{color:var(--gold);font-size:13px;letter-spacing:.28em;text-transform:uppercase}
+h1{font-size:clamp(34px,7vw,58px);font-weight:400;margin:10px 0;color:#f6e7c8}
+header p{max-width:650px;margin:0 auto;color:var(--muted)}
+main{width:min(100% - 32px,1000px);margin:34px auto}
+h2{font-weight:400;color:var(--gold);font-size:25px}
+.systems{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:14px}
+.system{background:linear-gradient(145deg,#302920,#211d18);border:1px solid #59472f;border-radius:12px;padding:18px}
+.system strong{display:block;color:#f4dfb6;font-size:18px;margin-bottom:5px}.system span{font-size:14px;color:var(--muted)}
+.workshop{margin-top:30px;background:#211d18;border:1px solid #59472f;border-radius:14px;padding:22px}
+label{display:block;color:#e7d2aa;margin:12px 0 7px}
+select,textarea{width:100%;background:#171411;color:var(--text);border:1px solid #6b5739;border-radius:8px;padding:12px;font:16px Georgia,serif}
+textarea{min-height:145px;resize:vertical}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+button{background:#8e6d3c;color:#fff8e9;border:0;border-radius:8px;padding:11px 17px;font:15px Georgia,serif;cursor:pointer}
+button.secondary{background:#393027;border:1px solid #6b5739}button:hover{filter:brightness(1.15)}
+.note{color:var(--muted);font-size:13px;margin-top:14px}
+footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid #57452e;font-size:14px}
+</style>
+</head>
+<body>
+<header>
+<div class="mark">© Mirror · мастерская письма</div>
+<h1>Рукопись</h1>
+<p>Пространство для знакомства с древними системами письма и создания собственных рунических текстов.</p>
+</header>
+<main>
+<section>
+<h2>Системы письма</h2>
+<div class="systems">
+<div class="system"><strong>Старший футарк</strong><span>24 руны древнегерманского алфавита</span></div>
+<div class="system"><strong>Англосаксонский футорк</strong><span>Расширенный рунический ряд</span></div>
+<div class="system"><strong>Исландские ряды</strong><span>Традиционные исландские рунические знаки</span></div>
+<div class="system"><strong>Руны ведьм</strong><span>Символическая система</span></div>
+<div class="system"><strong>Огам</strong><span>Древняя система письма кельтов</span></div>
+</div>
+</section>
+<section class="workshop">
+<h2>Рабочее поле</h2>
+<label for="system">Выбери систему письма</label>
+<select id="system">
+<option>Старший футарк</option><option>Англосаксонский футорк</option><option>Исландские ряды</option><option>Руны ведьм</option><option>Огам</option>
+</select>
+<label for="text">Твой текст</label>
+<textarea id="text" placeholder="Напиши здесь текст или подготовь место для будущей рунической записи…"></textarea>
+<div class="actions">
+<button id="copy">Копировать текст</button>
+<button class="secondary" id="save">Сохранить .txt</button>
+<button class="secondary" id="clear">Очистить</button>
+</div>
+<p class="note">Это начальная версия мастерской. Подключение настоящих рунических шрифтов, клавиатур и преобразования текста будет следующим этапом.</p>
+</section>
+</main>
+<footer>© Mirror — Рукопись</footer>
+<script>
+const field=document.getElementById('text');
+document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(field.value);alert('Текст скопирован.')}catch(e){field.select();document.execCommand('copy');alert('Текст скопирован.')}});
+document.getElementById('clear').addEventListener('click',()=>{field.value='';});
+document.getElementById('save').addEventListener('click',()=>{const blob=new Blob([field.value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rukopis-text.txt';a.click();URL.revokeObjectURL(url);});
+</script>
+</body>
+</html>
