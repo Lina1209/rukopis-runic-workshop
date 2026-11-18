@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#171511">
 <title>Транслитератор Рун — руническое письмо</title>
-<meta name="description" content="Транслитератор Рун: преобразование текста в рунические системы и исторические алфавиты, таблицы знаков, клавиатура, сохранение и экспорт.">
+<meta name="description" content="Транслитератор Рун: рунические системы и исторические алфавиты, транслитерация, клавиатура и перевод интерфейса на разные языки.">
 <meta property="og:title" content="Транслитератор Рун">
 <meta property="og:description" content="Рунические системы, исторические алфавиты, транслитерация и транскрипция.">
 <meta property="og:type" content="website">
@@ -25,6 +25,27 @@
     <button class="nav-btn" data-page="saved">Моя библиотека</button>
     <button class="nav-btn" data-page="help">Справка</button>
   </nav>
+  <div class="language-tools" aria-label="Перевод сайта">
+    <label class="sr-only" for="siteLanguage">Язык перевода</label>
+    <select id="siteLanguage" aria-label="Выбрать язык перевода">
+      <option value="en">English</option><option value="ru">Русский</option><option value="kk">Қазақша</option>
+      <option value="zh-CN">中文（简体）</option><option value="zh-TW">中文（繁體）</option><option value="tr">Türkçe</option>
+      <option value="hu">Magyar</option><option value="lt">Lietuvių</option><option value="de">Deutsch</option>
+      <option value="fr">Français</option><option value="es">Español</option><option value="it">Italiano</option>
+      <option value="pt">Português</option><option value="pl">Polski</option><option value="uk">Українська</option>
+      <option value="be">Беларуская</option><option value="ar">العربية</option><option value="he">עברית</option>
+      <option value="ja">日本語</option><option value="ko">한국어</option><option value="hi">हिन्दी</option>
+      <option value="ur">اردو</option><option value="fa">فارسی</option><option value="az">Azərbaycan</option>
+      <option value="uz">O‘zbek</option><option value="ky">Кыргызча</option><option value="tg">Тоҷикӣ</option>
+      <option value="fi">Suomi</option><option value="sv">Svenska</option><option value="no">Norsk</option>
+      <option value="da">Dansk</option><option value="nl">Nederlands</option><option value="cs">Čeština</option>
+      <option value="sk">Slovenčina</option><option value="ro">Română</option><option value="bg">Български</option>
+      <option value="el">Ελληνικά</option><option value="sr">Српски</option><option value="hr">Hrvatski</option>
+      <option value="vi">Tiếng Việt</option><option value="th">ไทย</option><option value="id">Bahasa Indonesia</option>
+      <option value="ms">Bahasa Melayu</option><option value="sw">Kiswahili</option><option value="af">Afrikaans</option>
+    </select>
+    <button type="button" class="translate-site-btn" id="translateSiteBtn" title="Открыть перевод сайта через Google">Google Translate ↗</button>
+  </div>
 </header>
 <div class="drawer-backdrop" id="catalogBackdrop" hidden></div>
 <aside class="catalog-drawer" id="catalogDrawer" aria-label="Каталог письменностей" aria-hidden="true">
@@ -44,7 +65,7 @@
   <div class="hero">
     <p class="eyebrow">МАСТЕРСКАЯ ДРЕВНИХ И СИМВОЛИЧЕСКИХ СИСТЕМ ПИСЬМА</p>
     <h1>Преобразуй слова<br><em>в язык знаков</em></h1>
-    <p class="hero-copy">Выбери систему, способ преобразования и создай собственную руническую надпись.</p>
+    <p class="hero-copy">Выбери систему, способ преобразования и создай собственную руническую надпись.</p><p class="translation-note">Для перевода всей страницы выбери язык и нажми Google Translate. Также можно использовать встроенный перевод браузера.</p>
   </div>
   <div class="workspace">
     <section class="panel input-panel">
