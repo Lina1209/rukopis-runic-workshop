@@ -23,7 +23,7 @@
 - \`fonts/\` — шрифты исландского ряда и «Руны Ведьм».
 - \`manifest.webmanifest\`, \`sw.js\` — PWA-метаданные и офлайн-кэш.
 
-Шрифты взяты из публичного репозитория [Lina1209/rune-fonts](https://github.com/Lina1209/rune-fonts); исходные лицензии и сведения об авторах см. в нём.
+Шрифты взяты из публичного репозитория [Lina1209/rune-fonts](https://github.com/Lina1209/rune-fonts). Копия лицензии SIL Open Font License 1.1 находится в `LICENSE.txt`.
 
 ## Запуск
 Откройте \`index.html\` через статический хостинг или локальный сервер. Для корректной работы Service Worker нужен HTTPS или localhost.
