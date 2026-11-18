@@ -1,0 +1,11 @@
+{
+  "name": "Транслитератор Рун",
+  "short_name": "Руны",
+  "description": "Преобразование текста в рунические системы и исторические алфавиты",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#171511",
+  "theme_color": "#171511",
+  "icons": [{"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}

@@ -2,72 +2,101 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#171411">
-<title>Рукопись — мастерская рунического письма</title>
-<meta name="description" content="Виртуальная мастерская рунического письма: древние системы письма, рунические шрифты и создание собственных надписей.">
-<style>
-:root{color-scheme:dark;--bg:#171411;--gold:#c7a66a;--text:#f2eadc;--muted:#b9ad9b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#3a2c1d 0,#171411 55%);color:var(--text);font:16px/1.6 Georgia,serif}
-header{padding:42px 20px 28px;text-align:center;border-bottom:1px solid #57452e}
-.mark{color:var(--gold);font-size:13px;letter-spacing:.28em;text-transform:uppercase}
-h1{font-size:clamp(34px,7vw,58px);font-weight:400;margin:10px 0;color:#f6e7c8}
-header p{max-width:650px;margin:0 auto;color:var(--muted)}
-main{width:min(100% - 32px,1000px);margin:34px auto}
-h2{font-weight:400;color:var(--gold);font-size:25px}
-.systems{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:14px}
-.system{background:linear-gradient(145deg,#302920,#211d18);border:1px solid #59472f;border-radius:12px;padding:18px}
-.system strong{display:block;color:#f4dfb6;font-size:18px;margin-bottom:5px}.system span{font-size:14px;color:var(--muted)}
-.workshop{margin-top:30px;background:#211d18;border:1px solid #59472f;border-radius:14px;padding:22px}
-label{display:block;color:#e7d2aa;margin:12px 0 7px}
-select,textarea{width:100%;background:#171411;color:var(--text);border:1px solid #6b5739;border-radius:8px;padding:12px;font:16px Georgia,serif}
-textarea{min-height:145px;resize:vertical}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-button{background:#8e6d3c;color:#fff8e9;border:0;border-radius:8px;padding:11px 17px;font:15px Georgia,serif;cursor:pointer}
-button.secondary{background:#393027;border:1px solid #6b5739}button:hover{filter:brightness(1.15)}
-.note{color:var(--muted);font-size:13px;margin-top:14px}
-footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid #57452e;font-size:14px}
-</style>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171511">
+<title>Транслитератор Рун — руническое письмо</title>
+<meta name="description" content="Транслитератор Рун: преобразование текста в рунические системы и исторические алфавиты, таблицы знаков, клавиатура, сохранение и экспорт.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-<div class="mark">© Mirror · мастерская письма</div>
-<h1>Рукопись</h1>
-<p>Пространство для знакомства с древними системами письма и создания собственных рунических текстов.</p>
+<div class="app-shell">
+<header class="topbar">
+  <a class="brand" href="#write" aria-label="Транслитератор Рун — главная"><span class="brand-mark">ᚱ</span><span><b>Транслитератор Рун</b><small>ПИСЬМО · ЗНАКИ · АЛФАВИТЫ</small></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">☰</button>
+  <nav class="main-nav" id="mainNav">
+    <button class="nav-btn active" data-page="write">Преобразование</button>
+    <button class="nav-btn" data-page="alphabet">Алфавит и клавиатура</button>
+    <button class="nav-btn" data-page="saved">Моя библиотека</button>
+    <button class="nav-btn" data-page="help">Справка</button>
+  </nav>
 </header>
 <main>
-<section>
-<h2>Системы письма</h2>
-<div class="systems">
-<div class="system"><strong>Старший футарк</strong><span>24 руны древнегерманского алфавита</span></div>
-<div class="system"><strong>Англосаксонский футорк</strong><span>Расширенный рунический ряд</span></div>
-<div class="system"><strong>Исландские ряды</strong><span>Традиционные исландские рунические знаки</span></div>
-<div class="system"><strong>Руны ведьм</strong><span>Символическая система</span></div>
-<div class="system"><strong>Огам</strong><span>Древняя система письма кельтов</span></div>
-</div>
+<section class="page active" id="page-write">
+  <div class="hero">
+    <p class="eyebrow">МАСТЕРСКАЯ ДРЕВНИХ И СИМВОЛИЧЕСКИХ СИСТЕМ ПИСЬМА</p>
+    <h1>Преобразуй слова<br><em>в язык знаков</em></h1>
+    <p class="hero-copy">Выбери систему, способ преобразования и создай собственную руническую надпись.</p>
+  </div>
+  <div class="workspace">
+    <section class="panel input-panel">
+      <div class="panel-heading"><span class="step">01</span><div><h2>Исходный текст</h2><p>Введи текст на русском или латинице</p></div></div>
+      <label for="sourceText">Текст для преобразования</label>
+      <textarea id="sourceText" spellcheck="false" placeholder="Напиши здесь слово, имя или целую фразу…">ЗНАНИЕ И МУДРОСТЬ</textarea>
+      <div class="control-grid">
+        <div><label for="systemSelect">Система письма</label><select id="systemSelect"></select></div>
+        <div><label for="languageSelect">Язык исходного текста</label><select id="languageSelect"><option value="auto">Автоопределение</option><option value="ru">Русский</option><option value="en">Английский</option><option value="lat">Латиница без фонетической обработки</option></select></div>
+        <div><label for="methodSelect">Метод преобразования</label><select id="methodSelect"><option value="transliteration">Транслитерация — буква к букве</option><option value="transcription">Транскрипция — по звучанию</option></select></div>
+        <div><label for="separatorSelect">Разделитель слов</label><select id="separatorSelect"><option value="space">Пробел</option><option value="dot">Точка ·</option><option value="slash">Косая черта /</option><option value="none">Без разделителя</option></select></div>
+      </div>
+      <div class="check-row"><label class="check"><input type="checkbox" id="preserveCase"> Сохранять регистр (если применимо)</label><label class="check"><input type="checkbox" id="keepPunctuation" checked> Сохранять знаки препинания</label></div>
+      <div class="actions">
+        <button class="btn primary" id="convertBtn">Преобразовать <span>→</span></button>
+        <button class="btn" id="clearBtn">Очистить</button>
+      </div>
+      <p class="micro-note" id="methodHint">Транслитерация передаёт буквы по принятой таблице соответствий. Это не перевод смысла.</p>
+    </section>
+    <section class="panel result-panel">
+      <div class="panel-heading"><span class="step">02</span><div><h2>Результат</h2><p id="resultSystem">Выбранная система</p></div><span class="live-dot">ГОТОВО</span></div>
+      <div id="resultText" class="result-text" aria-live="polite"></div>
+      <p id="fontStatus" class="micro-note"></p>
+      <div class="actions result-actions">
+        <button class="btn primary" id="copyBtn">Копировать</button>
+        <button class="btn" id="saveBtn">Сохранить</button>
+        <button class="btn" id="txtBtn">Скачать TXT</button>
+        <button class="btn" id="pngBtn">Скачать PNG</button>
+      </div>
+      <div class="notice" id="systemNote"></div>
+    </section>
+  </div>
+  <section class="panel keyboard-panel">
+    <div class="panel-heading"><span class="step">03</span><div><h2>Быстрая клавиатура</h2><p>Нажми на знак, чтобы добавить соответствующую букву в исходный текст</p></div></div>
+    <div id="quickKeyboard" class="quick-keyboard"></div>
+    <button class="text-button" id="openAlphabet">Открыть полный алфавит и таблицу знаков →</button>
+  </section>
 </section>
-<section class="workshop">
-<h2>Рабочее поле</h2>
-<label for="system">Выбери систему письма</label>
-<select id="system">
-<option>Старший футарк</option><option>Англосаксонский футорк</option><option>Исландские ряды</option><option>Руны ведьм</option><option>Огам</option>
-</select>
-<label for="text">Твой текст</label>
-<textarea id="text" placeholder="Напиши здесь текст или подготовь место для будущей рунической записи…"></textarea>
-<div class="actions">
-<button id="copy">Копировать текст</button>
-<button class="secondary" id="save">Сохранить .txt</button>
-<button class="secondary" id="clear">Очистить</button>
-</div>
-<p class="note">Это начальная версия мастерской. Подключение настоящих рунических шрифтов, клавиатур и преобразования текста будет следующим этапом.</p>
+<section class="page" id="page-alphabet">
+  <div class="page-title"><p class="eyebrow">ТАБЛИЦА ЗНАКОВ</p><h1>Алфавит выбранной системы</h1><p>Изучай соответствия, ищи буквы и вставляй знаки в рабочее поле.</p></div>
+  <section class="panel">
+    <div class="control-grid">
+      <div><label for="alphabetSystem">Система письма</label><select id="alphabetSystem"></select></div>
+      <div><label for="glyphSearch">Поиск буквы или знака</label><input id="glyphSearch" type="search" placeholder="Например: A, TH, руна…"></div>
+    </div>
+    <p id="alphabetDescription" class="micro-note"></p>
+    <div id="glyphGrid" class="glyph-grid"></div>
+  </section>
+</section>
+<section class="page" id="page-saved">
+  <div class="page-title"><p class="eyebrow">ЛИЧНАЯ КОЛЛЕКЦИЯ</p><h1>Моя библиотека</h1><p>Сохранённые надписи хранятся в памяти этого браузера.</p></div>
+  <section class="panel">
+    <div class="actions"><button class="btn" id="exportJsonBtn">Экспорт библиотеки JSON</button><button class="btn" id="importJsonBtn">Импорт JSON</button><input class="hidden" id="jsonFile" type="file" accept=".json,application/json"></div>
+    <div id="savedList" class="saved-list"></div>
+  </section>
+</section>
+<section class="page" id="page-help">
+  <div class="page-title"><p class="eyebrow">ПРИНЦИПЫ РАБОТЫ</p><h1>Справка и точность</h1><p>Разные системы письма требуют разных способов передачи звуков и букв.</p></div>
+  <div class="help-grid">
+    <article class="panel"><h2>Транслитерация</h2><p>Прямое преобразование букв исходного текста по таблице соответствий. Метод предсказуем: одна буква или сочетание букв заменяется выбранным знаком. Он не пытается передать произношение конкретного человека.</p></article>
+    <article class="panel"><h2>Транскрипция</h2><p>Попытка передать звучание. Для неё учитываются язык, сочетания звуков и некоторые фонетические правила. Результат зависит от произношения и акцента, поэтому для исторических языков он может быть приблизительным.</p></article>
+    <article class="panel"><h2>Историческая оговорка</h2><p>Рунические алфавиты не были универсальными шифрами для современного русского или английского. Таблицы в приложении предназначены для учебной и творческой записи. Отдельные соответствия упрощены и отмечены в описании системы.</p></article>
+    <article class="panel"><h2>Современные и эзотерические системы</h2><p>Арманен, Seax-Wica, Руны Ведьм, Фиванский алфавит и декоративные Pictish (Swirly) не следует смешивать с исторически засвидетельствованными руническими рядами. Их назначение и происхождение различаются.</p></article>
+  </div>
+  <section class="panel"><h2>Категории</h2><div id="systemCatalog" class="catalog"></div></section>
 </section>
 </main>
-<footer>© Mirror — Рукопись</footer>
-<script>
-const field=document.getElementById('text');
-document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(field.value);alert('Текст скопирован.')}catch(e){field.select();document.execCommand('copy');alert('Текст скопирован.')}});
-document.getElementById('clear').addEventListener('click',()=>{field.value='';});
-document.getElementById('save').addEventListener('click',()=>{const blob=new Blob([field.value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rukopis-text.txt';a.click();URL.revokeObjectURL(url);});
-</script>
+<footer><span>ᚱ Транслитератор Рун</span><span>Учебная и творческая мастерская письма</span><a href="https://mirror-info.forum2x2.ru/" target="_blank" rel="noopener noreferrer">Mirror Info</a></footer>
+</div>
+<script src="app.js" defer></script>
 </body>
 </html>
