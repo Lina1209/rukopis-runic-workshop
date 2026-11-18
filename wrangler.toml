@@ -1,0 +1,7 @@
+name = "rukopis-translate-api"
+main = "cloudflare-worker/worker.js"
+compatibility_date = "2026-11-18"
+workers_dev = true
+
+[observability]
+enabled = true
