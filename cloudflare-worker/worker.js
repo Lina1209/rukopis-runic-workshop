@@ -1,6 +1,5 @@
 const ALLOWED_ORIGINS = new Set([
-  "https://headless-corhincross-mila997-1407.wix-site-host.com",
-  "https://mirror-info.forum2x2.ru"
+  "https://headless-corhincross-mila997-1407.wix-site-host.com"
 ]);
 
 const GOOGLE_TRANSLATE_URL = "https://translation.googleapis.com/language/translate/v2";
