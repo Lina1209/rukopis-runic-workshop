@@ -11,3 +11,39 @@ label{display:block;color:#d8c49e;font-size:12px;margin:11px 0 6px}select,input[
 footer{width:min(1200px,100% - 36px);margin:0 auto;border-top:1px solid #57452e;padding:20px 0 26px;display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap;color:var(--muted);font-size:12px}footer span:first-child{color:var(--gold2);font:17px Georgia}footer a{color:var(--gold2)}
 @media(max-width:850px){.topbar{align-items:center;flex-wrap:wrap;padding:12px 0}.menu-toggle{display:block;margin-left:auto}.main-nav{display:none;width:100%;padding-bottom:10px}.main-nav.open{display:flex}.workspace{grid-template-columns:1fr}.hero{padding-top:22px}}
 @media(max-width:560px){main,.topbar,footer{width:calc(100% - 24px)}.page{padding-top:20px}.panel{padding:16px}.control-grid,.help-grid{grid-template-columns:1fr}.hero h1{font-size:40px}.result-text{min-height:130px}.nav-btn{flex:1}.glyph-grid{grid-template-columns:repeat(auto-fill,minmax(82px,1fr))}}
+/* Каталог письменностей и энциклопедические карточки */
+.menu-toggle{font-size:25px;line-height:1;min-width:48px;min-height:46px;color:var(--gold2)}
+.drawer-backdrop,.encyclopedia-backdrop{position:fixed;inset:0;background:rgba(5,8,9,.72);z-index:50}
+.catalog-drawer{position:fixed;z-index:51;top:0;right:0;width:min(560px,94vw);height:100dvh;background:#e5eef1;color:#14252b;box-shadow:-18px 0 50px #0007;transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column;padding:22px 18px 14px}
+.catalog-drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #c4d4da;padding-bottom:12px}
+.drawer-head .eyebrow{color:#60747b;margin:0}.drawer-head h2{font:26px Georgia,serif;margin:4px 0;color:#1b3038}
+.drawer-close,.encyclopedia-close{border:0;background:#d5e3e8;color:#172d35;border-radius:50%;width:42px;height:42px;font-size:28px;line-height:1}
+.drawer-intro{font-size:13px;color:#5e7178;margin:10px 0 14px}
+.drawer-systems{overflow:auto;overscroll-behavior:contain;padding-right:3px;flex:1}
+.drawer-group{margin:0 0 12px}.drawer-group h3{font-size:15px;color:#5d7078;margin:14px 8px 7px}
+.drawer-system{background:#d8e5ea;border-radius:12px;margin:7px 0;overflow:hidden;border:1px solid transparent}
+.drawer-system.expanded{background:#f3ead1;border-color:#e2c47f}
+.drawer-system-main{width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:14px 13px;border:0;background:transparent;color:#152a31;min-height:76px}
+.drawer-system-glyph{font:27px Georgia;min-width:34px;text-align:center}
+.drawer-system-label{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}.drawer-system-label b{font-size:16px;line-height:1.3}.drawer-system-label small{font-size:11px;color:#61747b;line-height:1.35}
+.drawer-arrow{font-size:23px;transition:transform .2s}.drawer-system.expanded .drawer-arrow{transform:rotate(180deg)}
+.drawer-system-detail{display:none;padding:0 14px 14px 60px}.drawer-system.expanded .drawer-system-detail{display:block}
+.drawer-system-detail p{font-size:12px;line-height:1.5;color:#53666d;margin:0 0 10px}
+.drawer-actions{display:flex;gap:7px;flex-wrap:wrap}.drawer-actions .btn{font-size:12px;padding:8px 10px;border-color:#aebfc4;background:#e9f0f2;color:#20363e}.drawer-actions .btn.primary{background:#d3b477;border-color:#c3a15e;color:#2b2418}
+.drawer-foot{border-top:1px solid #c4d4da;padding:12px 4px 0;display:flex;flex-direction:column;color:#435960;font:15px Georgia}.drawer-foot small{font:11px system-ui;color:#71838a;margin-top:3px}
+.encyclopedia-backdrop{z-index:60;display:flex;align-items:center;justify-content:center;padding:18px}
+.encyclopedia-modal{position:relative;width:min(900px,100%);max-height:min(92dvh,1000px);overflow:auto;background:#f0f4f3;color:#1c3035;border-radius:18px;padding:28px;box-shadow:0 20px 70px #0008}
+.encyclopedia-close{position:sticky;float:right;top:0;z-index:2;margin:-10px -10px 0 10px;background:#dbe6e7}
+.encyclopedia-modal .eyebrow{color:#8b6a32;margin:0}.encyclopedia-modal h2{font:clamp(27px,4vw,38px) Georgia,serif;margin:8px 0;color:#172c33}
+.ency-period{font-weight:650;color:#65777b;margin:0 0 10px}.ency-desc{line-height:1.6}.ency-caveat{background:#e1ebea;border-left:3px solid #b7985b;padding:10px 13px;font-size:12px;color:#52676b}
+.ency-rune-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:9px;margin-top:18px}
+.ency-rune-card{background:#e1ebed;border-radius:11px;padding:13px;min-width:0}
+.ency-rune-symbol{font:42px/1.2 Georgia,serif;text-align:center;color:#172e36}
+.ency-rune-card h3{text-align:center;font:17px Georgia;margin:8px 0 4px;color:#1b3038}
+.ency-rune-sound,.ency-rune-meaning{font-size:11px;line-height:1.45;color:#566a70;margin:5px 0}
+.catalog-item{display:block;border:0;background:none;color:var(--gold2);text-align:left;padding:4px 0;font:inherit}
+.catalog-item:hover{text-decoration:underline}
+body.modal-open{overflow:hidden}
+@media(max-width:560px){.catalog-drawer{width:calc(100vw - 18px);padding:17px 13px 10px}.drawer-system-main{padding:12px 9px;min-height:70px}.drawer-system-label b{font-size:15px}.drawer-system-detail{padding-left:52px}.encyclopedia-backdrop{padding:7px}.encyclopedia-modal{max-height:96dvh;padding:20px 14px;border-radius:13px}.ency-rune-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ency-rune-card{padding:10px}.ency-rune-symbol{font-size:36px}}
+@media(prefers-reduced-motion:reduce){.catalog-drawer{transition:none}}

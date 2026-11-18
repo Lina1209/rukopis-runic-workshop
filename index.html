@@ -18,7 +18,7 @@
 <div class="app-shell">
 <header class="topbar">
   <a class="brand" href="#write" aria-label="Транслитератор Рун — главная"><span class="brand-mark">ᚱ</span><span><b>Транслитератор Рун</b><small>ПИСЬМО · ЗНАКИ · АЛФАВИТЫ</small></span></a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">☰</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Открыть каталог письменностей" aria-expanded="false">☰</button>
   <nav class="main-nav" id="mainNav">
     <button class="nav-btn active" data-page="write">Преобразование</button>
     <button class="nav-btn" data-page="alphabet">Алфавит и клавиатура</button>
@@ -26,6 +26,19 @@
     <button class="nav-btn" data-page="help">Справка</button>
   </nav>
 </header>
+<div class="drawer-backdrop" id="catalogBackdrop" hidden></div>
+<aside class="catalog-drawer" id="catalogDrawer" aria-label="Каталог письменностей" aria-hidden="true">
+  <div class="drawer-head"><div><span class="eyebrow">СПРАВОЧНИК</span><h2>Письменности</h2></div><button class="drawer-close" id="catalogClose" aria-label="Закрыть каталог">×</button></div>
+  <p class="drawer-intro">Выбери систему для преобразования или открой её энциклопедическую карточку.</p>
+  <div id="drawerSystems" class="drawer-systems"></div>
+  <div class="drawer-foot"><span>Транслитератор Рун</span><small>Исторические сведения и современные адаптации отмечены отдельно</small></div>
+</aside>
+<div class="encyclopedia-backdrop" id="encyclopediaBackdrop" hidden>
+  <section class="encyclopedia-modal" id="encyclopediaModal" role="dialog" aria-modal="true" aria-labelledby="encyclopediaTitle">
+    <button class="encyclopedia-close" id="encyclopediaClose" aria-label="Закрыть">×</button>
+    <div id="encyclopediaContent"></div>
+  </section>
+</div>
 <main>
 <section class="page active" id="page-write">
   <div class="hero">
