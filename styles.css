@@ -32,7 +32,7 @@ footer{width:min(1200px,100% - 36px);margin:0 auto;border-top:1px solid #57452e;
 .drawer-system-detail{display:none;padding:0 14px 14px 60px}.drawer-system.expanded .drawer-system-detail{display:block}
 .drawer-system-detail p{font-size:12px;line-height:1.5;color:#53666d;margin:0 0 10px}
 .drawer-actions{display:flex;gap:7px;flex-wrap:wrap}.drawer-actions .btn{font-size:12px;padding:8px 10px;border-color:#aebfc4;background:#e9f0f2;color:#20363e}.drawer-actions .btn.primary{background:#d3b477;border-color:#c3a15e;color:#2b2418}
-.drawer-foot{border-top:1px solid #c4d4da;padding:12px 4px 0;display:flex;flex-direction:column;color:#435960;font:15px Georgia}.drawer-foot small{font:11px system-ui;color:#71838a;margin-top:3px}.encyclopedia-modal h2{font:clamp(27px,4vw,38px) Georgia,serif;margin:8px 0;color:#172c33}
+.drawer-foot{border-top:1px solid #c4d4da;padding:12px 4px 0;display:flex;flex-direction:column;color:#435960;font:15px Georgia}.drawer-foot small{font:11px system-ui;color:#71838a;margin-top:3px}
 .ency-period{font-weight:650;color:#65777b;margin:0 0 10px}.ency-desc{line-height:1.6}.ency-caveat{background:#e1ebea;border-left:3px solid #b7985b;padding:10px 13px;font-size:12px;color:#52676b}
 .ency-rune-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:9px;margin-top:18px}
 .ency-rune-card{background:#e1ebed;border-radius:11px;padding:13px;min-width:0}
